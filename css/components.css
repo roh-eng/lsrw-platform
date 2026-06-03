@@ -1,0 +1,306 @@
+/* ==========================================================================
+   LSRW Platform — Component Library v2
+   ========================================================================== */
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 0.5rem; padding: 0.65rem 1.4rem;
+    border-radius: var(--radius); font-weight: 600; font-size: 0.9rem;
+    letter-spacing: -0.01em; white-space: nowrap;
+    transition: var(--transition); position: relative; overflow: hidden;
+    border: 1px solid transparent;
+}
+.btn::after { content: ''; position: absolute; inset: 0; background: white; opacity: 0; transition: opacity 0.15s; border-radius: inherit; }
+.btn:hover::after { opacity: 0.05; }
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+
+.btn-primary { background: var(--primary); color: #fff; box-shadow: 0 4px 14px var(--primary-glow); }
+.btn-primary:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: 0 8px 24px var(--primary-glow); }
+
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+.btn-outline:hover { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--text-bright); }
+
+.btn-ghost { background: transparent; color: var(--text-muted); }
+.btn-ghost:hover { background: var(--bg-elevated); color: var(--text-bright); }
+
+.btn-success { background: var(--success); color: #0d1117; font-weight: 700; box-shadow: 0 4px 14px rgba(34,209,139,0.3); }
+.btn-success:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(34,209,139,0.4); filter: brightness(1.08); }
+
+.btn-danger { background: var(--error); color: #fff; }
+.btn-danger:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.btn-sm  { padding: 0.42rem 0.9rem;  font-size: 0.78rem; border-radius: var(--radius-sm); }
+.btn-lg  { padding: 0.85rem 1.9rem;  font-size: 0.95rem; border-radius: var(--radius-lg); }
+.btn-xl  { padding: 1.05rem 2.4rem;  font-size: 1rem;    border-radius: var(--radius-lg); }
+.btn-icon { padding: 0.58rem; aspect-ratio: 1; border-radius: var(--radius-sm); }
+.btn-full { width: 100%; }
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+.card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.75rem;
+    position: relative; overflow: hidden; transition: var(--transition);
+}
+.card-hover { cursor: pointer; }
+.card-hover:hover { border-color: var(--border-bright); background: var(--bg-elevated); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.card-hover:active { transform: translateY(-1px); }
+
+.hover-lift { transition: var(--transition); }
+.hover-lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--border-bright); }
+
+.glass-card { background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border); }
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+.input-group { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.25rem; }
+.input-group label { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; }
+
+.input-field {
+    padding: 0.75rem 1rem; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); color: var(--text-bright); font-size: 0.95rem;
+    transition: var(--transition); width: 100%;
+}
+.input-field::placeholder { color: var(--text-muted); }
+.input-field:focus { outline: none; border-color: var(--primary); background: var(--bg-hover); box-shadow: 0 0 0 3px var(--primary-subtle); }
+textarea.input-field { resize: vertical; line-height: 1.6; }
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+.badge {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    padding: 0.28rem 0.7rem; border-radius: var(--radius-full);
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.badge-primary { background: var(--primary-subtle); color: var(--primary-light); border: 1px solid rgba(139,125,255,0.40); }
+.badge-success { background: var(--success-subtle); color: var(--success);       border: 1px solid rgba(47,227,155,0.40); }
+.badge-warning { background: var(--warning-subtle); color: var(--warning);       border: 1px solid rgba(252,198,58,0.40); }
+.badge-error   { background: var(--error-subtle);   color: var(--error);         border: 1px solid rgba(255,123,123,0.40); }
+
+/* Achievement badge chip */
+.achievement-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.35rem 0.75rem; border-radius: var(--radius-full);
+    font-size: 0.75rem; font-weight: 700;
+    background: var(--bg-elevated); border: 1px solid var(--border-bright);
+    color: var(--text-bright); transition: var(--transition);
+    animation: badgePop 0.5s var(--ease-bounce) both;
+}
+.achievement-badge:hover { transform: scale(1.06); box-shadow: var(--shadow-sm); }
+
+/* =========================================================
+   STREAK PILL
+   ========================================================= */
+.streak-pill {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.3rem 0.8rem; border-radius: var(--radius-full);
+    background: rgba(252,198,58,0.16); border: 1px solid rgba(252,198,58,0.40);
+    font-size: 0.82rem; font-weight: 800; color: var(--warning);
+    font-family: 'Space Grotesk', sans-serif;
+    animation: streakGlow 2.5s ease-in-out infinite;
+}
+
+/* =========================================================
+   AVATAR RING
+   ========================================================= */
+.avatar-ring {
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+    box-shadow: 0 0 18px var(--primary-glow);
+    display: inline-flex;
+}
+.avatar-ring > div {
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--bg-card);
+}
+
+/* =========================================================
+   GENDER SELECTION CARDS
+   ========================================================= */
+.gender-card {
+    cursor: pointer;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: var(--transition);
+    background: var(--bg-elevated);
+    user-select: none;
+}
+.gender-card:hover {
+    border-color: var(--primary);
+    background: var(--bg-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px var(--primary-glow);
+}
+.gender-card.selected {
+    border-color: var(--primary);
+    background: var(--primary-subtle);
+    box-shadow: 0 0 0 3px var(--primary-subtle), var(--shadow-neon);
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.85rem 2.5rem;
+    background: rgba(7, 9, 13, 0.9);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+}
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+.stat-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.25rem 1.5rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: var(--transition);
+}
+.stat-card:hover { border-color: var(--border-bright); }
+.stat-label { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; }
+.stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.85rem; font-weight: 700; color: var(--text-bright); line-height: 1; }
+
+/* =========================================================
+   ACTIVITY HEAT MAP (analytics)
+   ========================================================= */
+:root {
+    --hm-size: 14px;                            /* cell side length */
+    --hm-l0: var(--bg-elevated);               /* no activity */
+    --hm-l1: rgba(139, 125, 255, 0.30);
+    --hm-l2: rgba(139, 125, 255, 0.52);
+    --hm-l3: rgba(139, 125, 255, 0.75);
+    --hm-l4: var(--primary);                   /* most active */
+}
+.hm-wrap     { display: flex; gap: 6px; min-width: max-content; }
+.hm-main     { display: flex; flex-direction: column; gap: 4px; }
+.hm-grid     { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, var(--hm-size)); grid-auto-columns: var(--hm-size); gap: 3px; }
+.hm-day-col  { display: grid; grid-template-rows: repeat(7, var(--hm-size)); gap: 3px; padding-top: 18px; }
+.hm-day-col span { height: var(--hm-size); line-height: var(--hm-size); font-size: 0.6rem; color: var(--text-muted); }
+.hm-months   { display: grid; column-gap: 3px; height: 14px; }
+.hm-months span { font-size: 0.6rem; color: var(--text-muted); white-space: nowrap; }
+.hm-cell {
+    width: var(--hm-size); height: var(--hm-size);
+    border-radius: 3px; background: var(--hm-l0);
+    display: inline-block; transition: transform 0.1s var(--ease);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.hm-cell[data-level="1"]  { background: var(--hm-l1); }
+.hm-cell[data-level="2"]  { background: var(--hm-l2); }
+.hm-cell[data-level="3"]  { background: var(--hm-l3); }
+.hm-cell[data-level="4"]  { background: var(--hm-l4); }
+.hm-cell[data-level="-1"] { background: transparent; }
+.hm-grid .hm-cell:hover   { transform: scale(1.18); box-shadow: 0 0 0 1px var(--border-bright); }
+
+/* =========================================================
+   AVATAR PRESET PICKER CARDS
+   ========================================================= */
+.avatar-preset-opt {
+    cursor: pointer;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    transition: var(--transition);
+    aspect-ratio: 3/4;
+    background: var(--bg-elevated);
+}
+.avatar-preset-opt:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px var(--primary-glow);
+}
+.avatar-preset-opt.av-active {
+    border-color: var(--primary);
+    box-shadow: 0 0 14px var(--primary-glow);
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   PROGRESS BAR
+   ========================================================= */
+.progress-bar { height: 3px; background: var(--bg-elevated); border-radius: var(--radius-full); overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent-cyan)); border-radius: var(--radius-full); transition: width 0.5s var(--ease); }
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+.divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
+
+/* =========================================================
+   MODULE CONTAINER
+   ========================================================= */
+.module-container { padding: 2rem 1.5rem; animation: slideUp 0.45s var(--ease) both; }
+
+/* =========================================================
+   TOAST / BADGE NOTIFICATION
+   ========================================================= */
+#badge-toast-container {
+    position: fixed; bottom: 100px; right: 28px; z-index: 9998;
+    display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-end;
+}
+.badge-toast {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    background: var(--bg-elevated); border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+    font-size: 0.88rem; font-weight: 600; color: var(--text-bright);
+    animation: slideInRight 0.4s var(--ease-bounce) both;
+    max-width: 280px;
+}
+.badge-toast-icon { font-size: 1.4rem; }
+
+/* =========================================================
+   OPTION BUTTONS (Quiz)
+   ========================================================= */
+.option-btn {
+    display: block; width: 100%; text-align: left;
+    padding: 1rem 1.25rem; background: var(--bg-elevated);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    color: var(--text-main); font-size: 0.95rem; font-weight: 500;
+    transition: var(--transition); cursor: pointer; margin-bottom: 0.75rem;
+}
+.option-btn:hover { border-color: var(--primary); background: var(--bg-hover); color: var(--text-bright); }
+
+/* =========================================================
+   TIMER DISPLAY
+   ========================================================= */
+.timer-display {
+    font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 800;
+    color: var(--error); line-height: 1; letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+}
+.timer-display.safe { color: var(--success); }
+.timer-display.warn { color: var(--warning); }
+
+/* =========================================================
+   STEP INDICATOR (multi-step forms)
+   ========================================================= */
+.step-indicator {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+.step-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--border-bright); transition: var(--transition);
+}
+.step-dot.active { background: var(--primary); box-shadow: 0 0 8px var(--primary-glow); width: 24px; border-radius: 4px; }
+.step-dot.done   { background: var(--success); }
+
+/* =========================================================
+   CANVAS LANDING OVERLAY
+   ========================================================= */
+#particle-canvas {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+}

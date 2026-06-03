@@ -1,0 +1,6 @@
+/* Tailwind source — compiled by `npm run build:css` into css/tailwind.css.
+   preflight is disabled in tailwind.config.js (base.css owns the reset), so
+   @tailwind base emits almost nothing; the real output is the utilities layer. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

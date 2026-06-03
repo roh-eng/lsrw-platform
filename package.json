@@ -1,0 +1,17 @@
+{
+  "name": "lsrw-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "LSRW.PRO — AI-powered Listening, Speaking, Reading & Writing placement-prep platform.",
+  "scripts": {
+    "build:css": "tailwindcss -i css/tailwind.input.css -o css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i css/tailwind.input.css -o css/tailwind.css --watch",
+    "test": "node tests/validate-content.mjs",
+    "verify": "node tests/verify-deploy.mjs",
+    "serve": "node -e \"const h=require('http'),f=require('fs'),p=require('path'),P=process.env.PORT||5173;h.createServer((q,s)=>{let u=decodeURIComponent(q.url.split('?')[0]);if(u==='/')u='/index.html';const fp=p.join(process.cwd(),u);f.readFile(fp,(e,d)=>{if(e){s.writeCode=404;s.statusCode=404;return s.end('Not found');}const t={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.json':'application/json'}[p.extname(fp)]||'application/octet-stream';s.setHeader('Content-Type',t);s.end(d);});}).listen(P,()=>console.log('LSRW dev server → http://localhost:'+P));\""
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

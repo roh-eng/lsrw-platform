@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --check js/api/ai.js)",
+      "Bash(node --check js/config.js)",
+      "Read(//d/tmp/lsrw-harness/**)",
+      "Bash(node harness.mjs)"
+    ]
+  }
+}

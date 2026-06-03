@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.*
+js/config.js
+.DS_Store
+
+# Supabase local secrets
+supabase/.env
+supabase/.temp/
+
+# Editor / OS
+Thumbs.db
+*.log
+
+.vercel

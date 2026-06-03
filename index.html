@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<script>/* Prevent flash-of-wrong-theme before JS loads */
+  (function(){var t=localStorage.getItem('lsrw_theme');if(t)document.documentElement.setAttribute('data-theme',t);})();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LSRW.PRO — AI-powered Listening, Speaking, Reading & Writing preparation for elite placements.">
+    <meta name="theme-color" content="#07090d">
+    <title>LSRW Skills Platform | Professional Placement Prep</title>
+
+    <!-- Favicon (SVG, theme-aware brand mark) -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- Faster external resources: warm up CDN / font connections early -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <!-- Social / link-preview metadata (the app has LinkedIn & WhatsApp share buttons) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LSRW.PRO — Master Listening, Speaking, Reading & Writing">
+    <meta property="og:description" content="AI-powered LSRW preparation for elite placements. Track streaks, earn badges, and sharpen your communication skills.">
+    <meta property="og:site_name" content="LSRW.PRO">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="LSRW.PRO — Placement Communication Prep">
+    <meta name="twitter:description" content="AI-powered Listening, Speaking, Reading & Writing practice with streaks, badges and analytics.">
+
+    <!-- Design tokens, keyframes, theming, responsive, print (Tailwind base layer) -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- Token-driven component primitives (.btn, .card, .badge, …) -->
+    <link rel="stylesheet" href="css/components.css">
+
+    <!-- ============================================================
+         TAILWIND CSS — compiled, minified utilities (production build).
+         Built from css/tailwind.input.css + tailwind.config.js via
+         `npm run build:css`. Linked LAST so utilities win over component
+         classes. Replaces the old Tailwind Play CDN + inline config.
+         Re-run `npm run build:css` (or `npm run watch:css`) after changing
+         any class names in index.html or js/**.
+         ============================================================ -->
+    <link rel="stylesheet" href="css/tailwind.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-deep text-body font-sans antialiased">
+
+    <!-- Fallback for users with JavaScript disabled (the whole UI is JS-rendered) -->
+    <noscript>
+        <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:2rem;text-align:center;background:#07090d;color:#a3b1c6;font-family:'Inter',system-ui,sans-serif;">
+            <div style="font-size:2.5rem;">🎓</div>
+            <h1 style="color:#f1f5fb;font-size:1.5rem;">JavaScript is required</h1>
+            <p style="max-width:420px;line-height:1.6;">LSRW.PRO is an interactive learning platform. Please enable JavaScript in your browser settings, then reload this page to start practising.</p>
+        </div>
+    </noscript>
+
+    <!-- Accessibility: skip to main content -->
+    <a href="#app"
+       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-token focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-neon">
+       Skip to content
+    </a>
+
+    <!-- Main Application Container -->
+    <div id="app">
+        <!-- The UI will be dynamically injected here by main.js -->
+        <div class="loader-container" id="initial-loader" role="status" aria-live="polite">
+            <div class="loader" aria-hidden="true"></div>
+            <p>Initializing Platform…</p>
+        </div>
+    </div>
+
+    <!-- Modular JavaScript -->
+    <script type="module" src="js/main.js"></script>
+
+    <style>
+        /* Initial loader (shown before Tailwind/JS hydrate) */
+        .loader-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-deep);
+            color: var(--text-muted);
+            gap: 1rem;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</body>
+</html>
